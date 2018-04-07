@@ -1,0 +1,50 @@
+To run the project:
+
+1. The project is made in Eclipse.
+2. Build and run the project.
+3. Enter input "N" to get top N websites as output.
+
+Any questions regarding building and running the project can be sent to vaibhav.hemant@gmail.com 
+
+LOGIC:
+
+1. Pull the list of 500 candidate sites from the given link (http://topsites.eaiti.com/).
+2. Create a Map with a candidate link as a key and an Integer value.
+3. The Integer value of the key corresponds to number of incoming links to the website.
+4. Start crawling the candidate websites. 
+5. The constant value CRAWLING_LIMIT can be adjusted to increase the rank confidence(with increase in crawling time).
+6. Make a GET request and gather all the nested HTML links in the <a href> tags.
+7. If a link on the parent URL is a link to one of the candidate keys, increment the corresponding "incoming link value".
+8. Sort the <CandidateURL, incomingLinks> Map based on the incomingLinks value.
+9. Return the top N websites found.
+
+Note 1:When I started measuring for "QUALITY" of links along with the "QUANTITY" of links, the results were not acceptable. For eg, "BLOGGER.COM" was consistently ranked as #1..
+Thereafter, I measured only the number of links.
+
+Output Example:
+
+With CRAWLER_LIMIT set to 1, following were the results for N=10
+
+Website Rank #1 amazon.com
+Website Rank #2 google.com
+Website Rank #3 t.co
+Website Rank #4 facebook.com
+Website Rank #5 twitter.com
+Website Rank #6 youtube.com
+Website Rank #7 instagram.com
+Website Rank #8 baidu.com
+Website Rank #9 stackexchange.com
+Website Rank #10 oracle.com
+
+With CRAWLER_LIMIT set to 50, following were the results for N=10
+
+Website Rank #1 google.com
+Website Rank #2 amazon.com
+Website Rank #3 t.co
+Website Rank #4 facebook.com
+Website Rank #5 twitter.com
+Website Rank #6 youtube.com
+Website Rank #7 instagram.com
+Website Rank #8 baidu.com
+Website Rank #9 stackexchange.com
+Website Rank #10 oracle.com
